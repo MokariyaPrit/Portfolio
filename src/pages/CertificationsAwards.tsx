@@ -2,58 +2,69 @@ import { useState } from "react";
 import { Box, Typography, Grid, Card, Button } from "@mui/material";
 import { styled } from "@mui/system";
 
+import codingCloud from "../../public/assets/codingcloud.png";
+import jsBeginners from "../../public/assets/JavaScript for Beginners-1.png";
+import jsIntermediate from "../../public/assets/JavaScript (Intermediate)-1.png";
+import jsBasic from "../../public/assets/JavaScript (Basic)-1.png";
+import greatStack from "../../public/assets/greatstack.png";
+import cssBasic from "../../public/assets/CSS (Basic)-1.png";
+import problemSolving from "../../public/assets/Problem Solving (Basic)-1.png";
+
 // Dummy data for certifications and awards
+
 const certificationsAwards = [
   {
     id: 1,
     title: "MERN STACK",
-    image: "/assets/codingcloud.png",
+    image: codingCloud, // ✅ Use imported image
     issuer: "CODING CLOUD",
     date: "March 2024",
   },
   {
     id: 2,
     title: "JavaScript for Beginners",
-    image: "/assets/JavaScript for Beginners-1.png",
+    image: jsBeginners, // ✅ Use imported image
     issuer: "Simplilearn SkillUP",
     date: "Feb 2025",
   },
   {
     id: 3,
     title: "JavaScript Intermediate",
-    image: "/assets/JavaScript (Intermediate)-1.png",
+    image: jsIntermediate, // ✅ Use imported image
     issuer: "HackerRank",
+    date: "Feb 2025",
+  },
+
+  {
+    id: 4,
+    title: "JavaScript Fundamentals",
+    image: greatStack, // ✅ Use imported image
+    issuer: "GreatStack",
     date: "Feb 2025",
   },
   {
     id: 5,
     title: "JavaScript Basic",
-    image: "/assets/JavaScript (Basic)-1.png",
+    image: jsBasic, // ✅ Use imported image
     issuer: "HackerRank",
-    date: "Feb 2025",
-  },
-  {
-    id: 4,
-    title: "JavaScript Fundamentals",
-    image: "/assets/greatstack.png",
-    issuer: "GreatStack",
     date: "Feb 2025",
   },
   {
     id: 6,
     title: "CSS Basic",
-    image: "/assets/CSS (Basic)-1.png",
+    image: cssBasic, // ✅ Use imported image
     issuer: "HackerRank",
     date: "Feb 2025",
   },
   {
     id: 7,
     title: "Problem Solving Basic",
-    image: "/assets/Problem Solving (Basic)-1.png",
+    image: problemSolving, // ✅ Use imported image
     issuer: "HackerRank",
     date: "Feb 2025",
   },
 ];
+
 
 const CertificationsAwards = () => {
   const [showAll, setShowAll] = useState(false);

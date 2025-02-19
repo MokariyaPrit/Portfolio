@@ -3,15 +3,22 @@ import { Box, Typography, Grid, Button } from "@mui/material";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-// Skills Data
+import htmlIcon from "../../public/assets/html5.png";
+import cssIcon from "../../public/assets/css.png";
+import jsIcon from "../../public/assets/js.png";
+import reactIcon from "../../public/assets/react.svg";
+import tsIcon from "../../public/assets/TS.png";
+import nodeIcon from "../../public/assets/node.png";
+import mongoIcon from "../../public/assets/mongodb.png";
+
 const skills = [
-  { name: "HTML", color: "#E44D26", icon: "/assets/html5.png" },
-  { name: "CSS", color: "#2965F1", icon: "/assets/css.png" },
-  { name: "JavaScript", color: "#F7DF1E", icon: "/assets/js.png" },
-  { name: "React", color: "#61DAFB", icon: "/assets/react.svg" },
-  { name: "TypeScript", color: "#3178C6", icon: "/assets/TS.png" },
-  { name: "Node.js", color: "#83CD29", icon: "/assets/node.png" },
-  { name: "mongodb", color: "#402e1f", icon: "/assets/mongodb.png" },
+  { name: "HTML", color: "#E44D26", icon: htmlIcon },
+  { name: "CSS", color: "#2965F1", icon: cssIcon },
+  { name: "JavaScript", color: "#F7DF1E", icon: jsIcon },
+  { name: "React", color: "#61DAFB", icon: reactIcon },
+  { name: "TypeScript", color: "#3178C6", icon: tsIcon },
+  { name: "Node.js", color: "#83CD29", icon: nodeIcon },
+  { name: "MongoDB", color: "#402e1f", icon: mongoIcon },
 ];
 
 const Skills = () => {

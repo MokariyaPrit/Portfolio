@@ -1,6 +1,7 @@
 import { Box, Typography, Container, Grid } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import headerImage from "../../public/assets/header.png"; // ✅ Import image
 
 // Animation variants for fade-in effect
 const fadeVariants = {
@@ -13,7 +14,10 @@ const letterVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { opacity: { delay: 0.1, duration: 0.7 }, y: { delay: 0.1, duration: 0.7 } },
+    transition: {
+      opacity: { delay: 0.1, duration: 0.7 },
+      y: { delay: 0.1, duration: 0.7 },
+    },
   },
   hidden: { opacity: 0, y: -20 },
 };
@@ -26,11 +30,16 @@ const About = () => {
     "to build scalable and high-performance applications.",
     "I love problem-solving and optimizing performance.",
     "Web developer driven by innovation and a commitment to crafting beautiful, functional applications.",
-
   ];
 
-  const { ref: imgRef, inView: imgInView } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const { ref: textRef, inView: textInView } = useInView({ triggerOnce: true, threshold: 0.5 });
+  const { ref: imgRef, inView: imgInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
   const { ref: headingRef, inView: headingInView } = useInView({
     triggerOnce: true, // Only trigger once when the section comes into view
     threshold: 0.5,
@@ -40,7 +49,14 @@ const About = () => {
   const headingWords = heading.split(" ");
 
   return (
-    <Box sx={{ width: "100%", textAlign: "center", py: { xs: 6, md: 8 }, backgroundColor: "#f9f9f9" }}>
+    <Box
+      sx={{
+        width: "100%",
+        textAlign: "center",
+        py: { xs: 6, md: 8 },
+        backgroundColor: "#f9f9f9",
+      }}
+    >
       {/* Title Section */}
       <Container maxWidth="lg" sx={{ mb: 4 }}>
         <motion.div
@@ -93,13 +109,12 @@ const About = () => {
               variants={fadeVariants}
             >
               <img
-                src="/assets/header.png" // Replace with your image URL
+                src={headerImage} // ✅ Use imported image
                 alt="About Me"
                 style={{
                   width: "100%",
                   borderRadius: "10px",
                   marginTop: "20px",
-            
                   backgroundColor: "white",
                   boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
                 }}
@@ -116,7 +131,9 @@ const About = () => {
               variants={fadeVariants}
             >
               {/* Description */}
-              <Box sx={{ textAlign: "left", maxWidth: "100%", marginBottom: 4 }}>
+              <Box
+                sx={{ textAlign: "left", maxWidth: "100%", marginBottom: 4 }}
+              >
                 {description.map((line, i) => (
                   <motion.p
                     key={i}

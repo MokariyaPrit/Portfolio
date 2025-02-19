@@ -4,11 +4,28 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
+import gym1 from "../../public//assets/gym/gym1.png";
+import gym2 from "../../public//assets/gym/gym2.png";
+import gym3 from "../../public//assets/gym/gym3.png";
+import gym4 from "../../public//assets/gym/gym4.png";
+
+import bus1 from "../../public//assets/bus/bus1.png";
+import bus2 from "../../public//assets/bus/bus2.png";
+import bus3 from "../../public//assets/bus/bus3.png";
+import bus4 from "../../public//assets/bus/bus4.png";
+
+import portfolio1 from "../../public//assets/portfolio/portfolio1.png";
+import portfolio2 from "../../public//assets/portfolio/portfolio2.png";
+import portfolio3 from "../../public//assets/portfolio/portfolio3.png";
+import portfolio4 from "../../public//assets/portfolio/portfolio4.png";
+
+
 const projects = [
   {
     title: "Gym Management System",
     description: "A full-stack gym management website for managing memberships, classes, and bookings.",
-    images: ["/assets/gym/gym1.png", "/assets/gym/gym2.png", "/assets/gym/gym3.png","/assets/gym/gym4.png"],
+    images: [gym1, gym2, gym3, gym4],
     techStack: ["React", "Tailwind CSS", "MUI"],
     liveLink: "#",
     githubLink: "https://github.com/MokariyaPrit/Gymsite",
@@ -16,7 +33,7 @@ const projects = [
   {
     title: "Bus Booking System",
     description: "A web app for booking buses, viewing schedules, and managing bookings.",
-    images: ["/assets/bus/bus1.png", "/assets/bus/bus2.png", "/assets/bus/bus3.png", "/assets/bus/bus4.png"],
+    images: [bus1, bus2, bus3, bus4],
     techStack: ["React", "JavaScript", "Material UI"],
     liveLink: "#",
     githubLink: "https://github.com/MokariyaPrit/Bus",
@@ -24,12 +41,13 @@ const projects = [
   {
     title: "Portfolio Website",
     description: "A modern and responsive personal portfolio showcasing projects, skills, and experience.",
-    images: ["/assets/portfolio/portfolio1.png", "/assets/portfolio/portfolio2.png", "/assets/portfolio/portfolio3.png","/assets/portfolio/portfolio4.png"],
-    techStack: ["React","Email Js", "TypeScript", "MUI"],
+    images: [portfolio1, portfolio2, portfolio3, portfolio4],
+    techStack: ["React", "EmailJs", "TypeScript", "MUI"],
     liveLink: "#",
-    githubLink: ""
+    githubLink: "",
   },  
 ];
+
 
 const Projects = () => {
   const [open, setOpen] = useState(false);
