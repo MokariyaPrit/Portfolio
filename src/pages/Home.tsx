@@ -27,7 +27,7 @@ const Home = () => {
       <Box id="skills"><Skills /></Box>
     <Box id="projects"><Projects /></Box>
       <Box id="education"><EducationExperience /></Box>
-      <Box id="CertificationsAwards"><CertificationsAwards /></Box>
+      <Box id="education"><CertificationsAwards /></Box>
     <Box id="contact"><ContactForm /></Box>
       </Box>
    </>

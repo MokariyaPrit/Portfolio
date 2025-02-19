@@ -1,7 +1,7 @@
 import { Typography, Container, Box } from "@mui/material";
 import { motion } from "framer-motion";
 import "../components/FancyButton"; // Import Fancy Button styles
-import Downlodebtn from "../components/downlodebtn";
+import Downlodebtn from "../components/Downlodebtn";
 
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -67,9 +67,9 @@ function Landingpage() {
               gap: 2, // Spacing between buttons
             }}
           >
-            <button id="btnlandingpage1" className="fancy-button">
-              <span>View My Work</span>
-            </button>
+            {/* <button id="btnlandingpage1" className="fancy-button">
+              <a href="/projects"><span>View My Work</span></a>
+            </button> */}
            <Downlodebtn />
           </Box>
         </motion.div>

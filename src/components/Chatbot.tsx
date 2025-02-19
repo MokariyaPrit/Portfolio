@@ -32,17 +32,16 @@ const Chatbot = () => {
   // ];
 
   const projectsInfo = [
-    "Project 1: Portfolio website built with React and MUI.",
-    "Project 2: E-commerce website using React and Node.js.",
-    "Project 3: Real-time chat app with WebSockets.",
-    // "Project 4: Blog platform with authentication and CRUD operations.",
-    // "Project 5: Task manager app using React and Redux.",
+    "Portfolio Website: A modern and responsive personal portfolio built with React, TypeScript, and MUI.",
+    "Bus Booking System: A web app for booking buses, viewing schedules, and managing reservations using React and MUI.",
+    "Gym Management System: A full-stack application for managing gym memberships, classes, and bookings using React, Node.js, and MongoDB.",
   ];
+  
 
   const contactInfo = [
     "Email : mokariyaprit2086@gmail",
-    "Phone: +91-9081800000",
     "LinkedIn: https://www.linkedin.com/in/your-profile",
+    "GitHub : https://github.com/MokariyaPrit"
   ];
 
   const handleOptionClick = (option: string) => {
@@ -245,18 +244,17 @@ const Chatbot = () => {
               </Button>
             </Box>
           ) : (
-            <Box>
-              {currentStep < aboutInfo.length - 1 && (
-                <Button onClick={handleNextStep} fullWidth sx={{ mt: 2 }}>
-                  Next
-                </Button>
-              )}
-              {currentStep > 0 && (
-                <Button onClick={handleBackStep} fullWidth sx={{ mt: 2 }}>
-                  Back
-                </Button>
-              )}
-            </Box>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1, mt: 2 }}>
+            {currentStep < aboutInfo.length - 1 && (
+              <Button variant="contained" onClick={handleNextStep} fullWidth>
+                Next
+              </Button>
+            )}
+            <Button variant="outlined" onClick={handleBackStep} fullWidth>
+              Back
+            </Button>
+          </Box>
+          
           )}
 
           {/* Close Button */}

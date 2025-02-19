@@ -1,7 +1,6 @@
 import { Box, Typography, Container, Grid } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import FancyButton from "../components/FancyButton"; // Import the FancyButton component
 
 // Animation variants for fade-in effect
 const fadeVariants = {
@@ -25,7 +24,9 @@ const About = () => {
     "Since beginning my journey as a web developer,",
     "I've worked with modern technologies like React, TypeScript,Node and Material UI",
     "to build scalable and high-performance applications.",
-    "I love problem-solving and optimizing performance."
+    "I love problem-solving and optimizing performance.",
+    "Web developer driven by innovation and a commitment to crafting beautiful, functional applications.",
+
   ];
 
   const { ref: imgRef, inView: imgInView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -135,7 +136,7 @@ const About = () => {
               </Box>
 
               {/* Button */}
-              <motion.div
+              {/* <motion.div
                 initial="hidden"
                 animate={textInView ? "visible" : "hidden"}
                 variants={fadeVariants}
@@ -144,7 +145,7 @@ const About = () => {
                   text="Learn More"
                   onClick={() => console.log("Learn More Clicked")}
                 />
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </Grid>
         </Grid>

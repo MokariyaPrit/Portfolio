@@ -1,30 +1,60 @@
-import { Box, Typography, Container, Grid, Card, CardContent, CardMedia, Button } from "@mui/material";
+import { useState } from "react";
+import { Box, Typography, Container, Grid, Card, CardContent, CardMedia, Button, Dialog } from "@mui/material";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const projects = [
   {
-    title: "Bus Booking System",
-    description: "A web app for booking buses, viewing schedules, and managing bookings.",
-    image: "/assets/bus/bus3.png",
-    techStack: ["React", "TypeScript", "Material UI"],
-    liveLink: "#",
-    githubLink: "#",
-  },
-  {
     title: "Gym Management System",
     description: "A full-stack gym management website for managing memberships, classes, and bookings.",
-    image: "/assets/gym/gym1.png",
-    techStack: ["React", "Node.js", "MongoDB", "MUI"],
+    images: ["/assets/gym/gym1.png", "/assets/gym/gym2.png", "/assets/gym/gym3.png","/assets/gym/gym4.png"],
+    techStack: ["React", "Tailwind CSS", "MUI"],
     liveLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/MokariyaPrit/Gymsite",
   },
-
+  {
+    title: "Bus Booking System",
+    description: "A web app for booking buses, viewing schedules, and managing bookings.",
+    images: ["/assets/bus/bus1.png", "/assets/bus/bus2.png", "/assets/bus/bus3.png", "/assets/bus/bus4.png"],
+    techStack: ["React", "JavaScript", "Material UI"],
+    liveLink: "#",
+    githubLink: "https://github.com/MokariyaPrit/Bus",
+  },
+  {
+    title: "Portfolio Website",
+    description: "A modern and responsive personal portfolio showcasing projects, skills, and experience.",
+    images: ["/assets/portfolio/portfolio1.png", "/assets/portfolio/portfolio2.png", "/assets/portfolio/portfolio3.png","/assets/portfolio/portfolio4.png"],
+    techStack: ["React","Email Js", "TypeScript", "MUI"],
+    liveLink: "#",
+    githubLink: ""
+  },  
 ];
 
-
-
 const Projects = () => {
+  const [open, setOpen] = useState(false);
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  const handleOpen = (images:any) => {
+    setSelectedImages(images);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedImages([]);
+  };
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
+
   return (
     <Box sx={{ width: "100%", py: 6, backgroundColor: "#f9f9f9" }}>
       <Container maxWidth="lg">
@@ -39,7 +69,7 @@ const Projects = () => {
               <Card sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, p: 2 }}>
                 <CardMedia
                   component="img"
-                  image={project.image}
+                  image={project.images[0]}
                   alt={project.title}
                   sx={{ width: { xs: "100%", md: "40%" }, borderRadius: 2 }}
                 />
@@ -53,8 +83,8 @@ const Projects = () => {
                   <Typography variant="body2" sx={{ fontWeight: "bold", mb: 2 }}>
                     Tech Stack: {project.techStack.join(", ")}
                   </Typography>
-                  <Button href={project.liveLink} target="_blank" sx={{ mr: 2 }}>
-                    Live Demo
+                  <Button onClick={() => handleOpen(project.images)} sx={{ mr: 2 }}>
+                    Demo
                   </Button>
                   <Button href={project.githubLink} target="_blank" variant="outlined">
                     GitHub
@@ -64,8 +94,18 @@ const Projects = () => {
             </Grid>
           ))}
         </Grid>
-
       </Container>
+      
+      {/* Carousel Modal */}
+      <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
+        <Box sx={{ p: 2 }}>
+          <Slider {...sliderSettings}>
+            {selectedImages.map((img, idx) => (
+              <Box key={idx} component="img" src={img} alt="Project Screenshot" sx={{ width: "100%" }} />
+            ))}
+          </Slider>
+        </Box>
+      </Dialog>
     </Box>
   );
 };

@@ -6,8 +6,8 @@ const DownloadButton = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/sample.pdf"; // Path to your PDF file
-    link.download = "sample.pdf"; // Default name for the downloaded file
+    link.href = "../../public/PRIT_CV.pdf"; // Path to your PDF file
+    link.download = "Prit CV.pdf"; // Default name for the downloaded file
     link.click(); // Simulate click to start download
   };
 

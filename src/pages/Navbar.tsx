@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { Menu, Close } from "@mui/icons-material";
 
-const sections = ["home", "about", "education","projects", "contact"];
+const sections = ["home", "about", "projects","education", "contact"];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -64,7 +64,7 @@ const Navbar = () => {
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           {/* Logo */}
           <Typography variant="h6" sx={{ color: "black", fontWeight: "bold" }}>
-            My Portfolio
+            Prit Mokariya
           </Typography>
 
           {/* Desktop Navigation */}
@@ -77,6 +77,7 @@ const Navbar = () => {
                   color: activeSection === section ? "#6e07f3" : "black", // Active section color
                   textTransform: "none",
                   marginLeft: 2,
+                  fontFamily:"'Inter 'Poppins', sans-serif",
                   "&:hover": {
                     color: "#6e07f3",
                   },

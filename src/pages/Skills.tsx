@@ -16,10 +16,10 @@ const skills = [
 
 const Skills = () => {
   const [visibleCount, setVisibleCount] = useState(4);
-  const [isExpanded, setIsExpanded] = useState(false); // Added state for toggling
+  const [isExpanded, setIsExpanded] = useState(false);
   const toggleView = () => {
     setIsExpanded((prev) => !prev);
-    setVisibleCount(isExpanded ? 4 : skills.length); // Show all or reset to 4
+    setVisibleCount(isExpanded ? 4 : skills.length);
   };
 
   return (
@@ -27,8 +27,7 @@ const Skills = () => {
       <Typography variant="h3" fontWeight="bold" gutterBottom sx={{ color: "#333" }}>
         My Skills
       </Typography>
-
-      {/* Skills Grid */}
+      
       <Grid
         container
         spacing={4}
@@ -39,24 +38,23 @@ const Skills = () => {
           <SkillCard key={index} skill={skill} />
         ))}
       </Grid>
-
-      {/* See More / See Less Button */}
+      
       <Button
         onClick={toggleView}
         variant="contained"
         sx={{
           mt: 4,
-          px: 3, // Adjust padding
-          py: 1, // Adjust padding
-          fontSize: "1rem", // Adjust font size
-          textTransform: "none", // Prevent all uppercase text
-          borderRadius: "1.5rem", // Rounded button
+          px: 3,
+          py: 1,
+          fontSize: "1rem",
+          textTransform: "none",
+          borderRadius: "1.5rem",
           backgroundColor: "#333",
           color: "#fff",
-          transition: "all 0.3s ease-in-out", // Smooth transition
+          transition: "all 0.3s ease-in-out",
           "&:hover": {
             backgroundColor: "#555",
-            transform: "scale(1.05)", // Slight scaling on hover
+            transform: "scale(1.05)",
           },
         }}
       >
@@ -66,8 +64,7 @@ const Skills = () => {
   );
 };
 
-// SkillCard Component
-const SkillCard = ({ skill }: { skill: { name: string; color: string; icon: string } }) => {
+const SkillCard = ({ skill }:any) => {
   const controls = useAnimation();
   const { ref, inView } = useInView({ threshold: 0.3 });
 
@@ -86,6 +83,7 @@ const SkillCard = ({ skill }: { skill: { name: string; color: string; icon: stri
           visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } },
           hidden: { opacity: 0, y: 50, scale: 0.95, transition: { duration: 0.5, ease: "easeOut" } },
         }}
+        whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.15)" }}
         style={{
           width: "100%",
           maxWidth: "220px",
@@ -103,7 +101,6 @@ const SkillCard = ({ skill }: { skill: { name: string; color: string; icon: stri
           margin: "auto",
         }}
       >
-        {/* Background Circle */}
         <div
           style={{
             width: "120px",
@@ -117,7 +114,6 @@ const SkillCard = ({ skill }: { skill: { name: string; color: string; icon: stri
           }}
         />
 
-        {/* Skill Icon */}
         <div
           style={{
             width: "130px",
@@ -135,7 +131,6 @@ const SkillCard = ({ skill }: { skill: { name: string; color: string; icon: stri
           <img src={skill.icon} alt={skill.name} style={{ width: "70px", height: "70px" }} />
         </div>
 
-        {/* Skill Name */}
         <Typography variant="h6" sx={{ color: "#4C5656", marginTop: "30px", zIndex: 1000 }}>
           {skill.name}
         </Typography>
