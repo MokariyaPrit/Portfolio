@@ -1,12 +1,13 @@
 import { useTheme } from "@mui/material/styles";
 import styled from "styled-components";
+import downlink from "../../public/PRIT_CV.pdf"
 
 const DownloadButton = () => {
   const theme = useTheme(); // Get the theme
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "../../public/PRIT_CV.pdf"; // Path to your PDF file
+    link.href = downlink; // Path to your PDF file
     link.download = "Prit CV.pdf"; // Default name for the downloaded file
     link.click(); // Simulate click to start download
   };
