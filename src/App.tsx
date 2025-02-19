@@ -5,14 +5,15 @@ import NotFound from "./NotFound";
 
 const App = () => {
   return (
+    <>      
     <Routes>
-      
       <Route path="/" element={<Layout />}>
         <Route index element={<Homesection />} />
         <Route path="*" element={<NotFound />} />
 
       </Route>
     </Routes>
+    </>
   );
 };
 

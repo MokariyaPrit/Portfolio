@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import "../components/FancyButton"; // Import Fancy Button styles
 import Downlodebtn from "../components/Downlodebtn";
 
+
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
@@ -13,8 +14,11 @@ const buttonVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 0.5 } },
 };
 
+
 function Landingpage() {
   return (
+    <>
+    {/* <CursorEffect /> */}
     <Box
       sx={{
         height: "100vh",
@@ -88,6 +92,7 @@ function Landingpage() {
         {/* Add any additional content or styling if needed */}
       </Box>
     </Box>
+    </>
   );
 }
 
