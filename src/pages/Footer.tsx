@@ -37,7 +37,7 @@ const Footer = () => {
                   links={[
                     { label: "About Me", href: "#about" },
                     { label: "Projects", href: "#projects" },
-                    { label: "Resume", href: "#landingpage" },
+                    { label: "Resume", href: "#home" },
                   ]}
                 />
                 <LinksSection
