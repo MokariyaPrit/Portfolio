@@ -4,6 +4,14 @@ import { TextField, Button, Box, Grid, Typography, Card } from "@mui/material";
 import { styled } from "@mui/system";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const serviceKey = import.meta.env.VITE_SERVIES_KEY;
+const templateKey = import.meta.env.VITE_TEMPALTE_KEY;
+const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+
+console.log("Service Key:", serviceKey);
+console.log("Template Key:", templateKey);
+console.log("Public Key:", publicKey);
+
 
 // Styled Components for better UI
 const StyledWrapper = styled(Box)`
@@ -154,9 +162,9 @@ const ContactForm = () => {
     if (!form.current) return;
 
     emailjs
-      .sendForm("service_n55b1tp", "template_kwfx79p", form.current, {
-        publicKey: "IT-X7ZLz9mfBcbr7e",
-      })
+    emailjs.sendForm(serviceKey, templateKey, form.current, {
+      publicKey: publicKey,
+    })    
       .then(
         () => {
           toast.success("Message sent successfully! 🎉", {

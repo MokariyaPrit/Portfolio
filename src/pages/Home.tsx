@@ -11,9 +11,6 @@ import Chatbot from '../components/Chatbot';
 
 
 
-//service_n55b1tp
-//template_kwfx79p
-// IT-X7ZLz9mfBcbr7e
 const Home = () => {
   return (
     <>
