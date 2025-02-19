@@ -37,7 +37,7 @@ const Footer = () => {
                   links={[
                     { label: "About Me", href: "#about" },
                     { label: "Projects", href: "#projects" },
-                    { label: "Resume", href: "#home" },
+                    { label: "Resume", href: "#" }, // ✅ Scrolls to top when clicked
                   ]}
                 />
                 <LinksSection
@@ -104,7 +104,11 @@ const LinksSection: React.FC<{ links: { label: string; href: string }[] }> = ({ 
         <StyledLink
           key={index}
           onClick={() =>
-            link.href.startsWith("#") ? scrollToSection(link.href) : window.open(link.href, "_blank")
+            link.href === "#"
+              ? scrollToSection("#") // ✅ Scroll to top when clicking Resume
+              : link.href.startsWith("#")
+              ? scrollToSection(link.href)
+              : window.open(link.href, "_blank")
           }
           variant="body2"
         >
@@ -117,9 +121,15 @@ const LinksSection: React.FC<{ links: { label: string; href: string }[] }> = ({ 
 
 // Function for Smooth Scrolling
 const scrollToSection = (id: string) => {
-  const target = document.querySelector(id);
-  if (target) {
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (id === "#") {
+    // Scroll to the top of the page
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    // Scroll to the section if it exists
+    const target = document.querySelector(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 };
 
