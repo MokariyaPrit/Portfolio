@@ -96,17 +96,31 @@ const FooterSection: React.FC<{ title: string; children: React.ReactNode }> = ({
   );
 };
 
-// Links Section Component
+// Links Section Component (Fix for Quick Links)
 const LinksSection: React.FC<{ links: { label: string; href: string }[] }> = ({ links }) => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, textAlign: 'center' }}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 1, textAlign: "center" }}>
       {links.map((link, index) => (
-        <StyledLink key={index} href={link.href} variant="body2">
+        <StyledLink
+          key={index}
+          onClick={() =>
+            link.href.startsWith("#") ? scrollToSection(link.href) : window.open(link.href, "_blank")
+          }
+          variant="body2"
+        >
           {link.label}
         </StyledLink>
       ))}
     </Box>
   );
+};
+
+// Function for Smooth Scrolling
+const scrollToSection = (id: string) => {
+  const target = document.querySelector(id);
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 };
 
 // Styled Components
@@ -122,6 +136,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 16px;
   transition: color 0.3s ease;
+  cursor: pointer; /* Ensure it's clickable */
   &:hover {
     color: #6e07f3;
   }
