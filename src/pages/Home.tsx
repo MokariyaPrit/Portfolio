@@ -18,7 +18,6 @@ const Home = () => {
     <Box sx={{ width: "100%", textAlign: "center", overflowX: "hidden", marginTop: "50px" }}>
       {/* 🚀 Hero Section */}
       <Box id="landingpage"><Landingpage /></Box>
-
       <Box id="about"><About /></Box>
       <Box id="about"><Chatbot /></Box>
       <Box id="skills"><Skills /></Box>
