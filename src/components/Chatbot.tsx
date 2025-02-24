@@ -40,7 +40,7 @@ const Chatbot = () => {
 
   const contactInfo = [
     "Email : mokariyaprit2086@gmail",
-    "LinkedIn: https://www.linkedin.com/in/your-profile",
+    "LinkedIn: https://www.linkedin.com/in/prit-mokariya",
     "GitHub : https://github.com/MokariyaPrit"
   ];
 
