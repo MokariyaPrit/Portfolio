@@ -43,7 +43,7 @@ function Landingpage() {
               fontSize: { xs: "2.5rem", md: "4rem" },
             }}
           >
-            Hi, I'm Prit 👋
+            Hi, I'm Bhavesh 👋
           </Typography>
         </motion.div>
 
@@ -57,7 +57,7 @@ function Landingpage() {
               fontSize: { xs: "1rem", md: "1.5rem" },
             }}
           >
-            “A passionate web developer with expertise in React.js, TypeScript, and Material UI, currently expanding knowledge in Node.js to build full-stack applications.”
+"A passionate iOS developer with expertise in Swift, SwiftUI, and UIKit, currently expanding knowledge in backend development to build full-stack applications."
           </Typography>
         </motion.div>
 

@@ -3,22 +3,22 @@ import { Box, Typography, Grid, Button } from "@mui/material";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import htmlIcon from "../../public/assets/html5.png";
-import cssIcon from "../../public/assets/css.png";
-import jsIcon from "../../public/assets/js.png";
-import reactIcon from "../../public/assets/react.svg";
-import tsIcon from "../../public/assets/TS.png";
-import nodeIcon from "../../public/assets/node.png";
-import mongoIcon from "../../public/assets/mongodb.png";
+import swiftIcon from "../../public/assets/swift.png";
+import swiftuiIcon from "../../public/assets/swiftui.png";
+import uikitIcon from "../../public/assets/uikit.png";
+import combineIcon from "../../public/assets/combine.png";
+import coredataIcon from "../../public/assets/coredata.png";
+import firebaseIcon from "../../public/assets/firebase.png";
+import xcodeIcon from "../../public/assets/xcode.png";
 
 const skills = [
-  { name: "HTML", color: "#E44D26", icon: htmlIcon },
-  { name: "CSS", color: "#2965F1", icon: cssIcon },
-  { name: "JavaScript", color: "#F7DF1E", icon: jsIcon },
-  { name: "React", color: "#61DAFB", icon: reactIcon },
-  { name: "TypeScript", color: "#3178C6", icon: tsIcon },
-  { name: "Node.js", color: "#83CD29", icon: nodeIcon },
-  { name: "MongoDB", color: "#402e1f", icon: mongoIcon },
+  { name: "Swift", color: "#F05138", icon: swiftIcon },
+  { name: "SwiftUI", color: "#0071E3", icon: swiftuiIcon },
+  { name: "UIKit", color: "#2396F3", icon: uikitIcon },
+  { name: "Combine", color: "#32D74B", icon: combineIcon },
+  { name: "Core Data", color: "#FF9500", icon: coredataIcon },
+  { name: "Firebase", color: "#FFCB2B", icon: firebaseIcon },
+  { name: "Xcode", color: "#1575F9", icon: xcodeIcon },
 ];
 
 const Skills = () => {
@@ -71,7 +71,7 @@ const Skills = () => {
   );
 };
 
-const SkillCard = ({ skill }:any) => {
+const SkillCard = ({ skill }: any) => {
   const controls = useAnimation();
   const { ref, inView } = useInView({ threshold: 0.3 });
 
@@ -108,19 +108,6 @@ const SkillCard = ({ skill }:any) => {
           margin: "auto",
         }}
       >
-        <div
-          style={{
-            width: "120px",
-            height: "120px",
-            borderRadius: "50%",
-            position: "absolute",
-            top: "60px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 0,
-          }}
-        />
-
         <div
           style={{
             width: "130px",
