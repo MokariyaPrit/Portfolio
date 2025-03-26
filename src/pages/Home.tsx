@@ -3,7 +3,7 @@ import About from "./About";
 import Skills from "./Skills";
 import EducationExperience from "./EducationExperience";
 import Landingpage from "./Landingpage";
-import CertificationsAwards from './CertificationsAwards';
+// import CertificationsAwards from './CertificationsAwards';
 import  ContactForm  from './ContactForm';
 // import Testimonials from './Testimonials';
 import Projects from './Project';
@@ -23,7 +23,7 @@ const Home = () => {
       <Box id="skills"><Skills /></Box>
     <Box id="projects"><Projects /></Box>
       <Box id="education"><EducationExperience /></Box>
-      <Box id="education"><CertificationsAwards /></Box>
+      {/* <Box id="education"><CertificationsAwards /></Box> */}
     <Box id="contact"><ContactForm /></Box>
       </Box>
    </>

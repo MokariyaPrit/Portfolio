@@ -15,7 +15,7 @@ const Footer = () => {
           <Grid item xs={12} sm={6} md={4}>
             <FooterSection title="Contact Information">
               <Typography sx={{ color: '#fff', fontSize: { xs: '14px', sm: '16px' }, mb: 1, textAlign: 'center' }}>
-                Email: <StyledLink href="mailto:mokariyaprit2086@gmail.com">mokariyaprit2086@gmail.com</StyledLink>
+                Email: <StyledLink href="mailto:bbhuva294@gmail.com">bbhuva294@gmail.com</StyledLink>
               </Typography>
             </FooterSection>
           </Grid>
@@ -44,7 +44,7 @@ const Footer = () => {
                   links={[
                     { label: "Education", href: "#education" },
                     { label: "Contact", href: "#contact" },
-                    { label: "GitHub", href: "https://github.com/MokariyaPrit" },
+                    { label: "GitHub", href: "https://github.com/bhuvabhavesh" },
                   ]}
                 />
               </Box>
@@ -56,7 +56,7 @@ const Footer = () => {
         <FooterSection title="">
           <Box sx={{ textAlign: 'center', mt: 4, borderTop: '1px solid #444', pt: 2 }}>
             <Typography variant="body2" sx={{ color: '#fff', fontSize: { xs: '12px', sm: '14px' }, textAlign: 'center' }}>
-              &copy; {new Date().getFullYear()} Prit Mokariya. All rights reserved.
+              &copy; {new Date().getFullYear()} Bhuva Bhavesh. All rights reserved.
             </Typography>
           </Box>
         </FooterSection>

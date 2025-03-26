@@ -154,8 +154,8 @@ const ContactForm = () => {
     if (!form.current) return;
 
     emailjs
-      .sendForm("service_n55b1tp", "template_kwfx79p", form.current, {
-        publicKey: "IT-X7ZLz9mfBcbr7e",
+      .sendForm("service_m6mjsuv", "template_nzvt2wa", form.current, {
+        publicKey: "yommtNwwvNS-S06Tk",
       })
       .then(
         () => {

@@ -1,26 +1,27 @@
 import { Box, Container, Typography, Card, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
 const experiences = [
   {
-    date: "Jan 2025 - Present",
-    title: "React.js Intern Internship",
+    date: "Nov 2024 - Present",
+    title: "iOS Developer",
     company: "GTCSYS",
-    description: "Created a scalable web application for managing inquiries across websites.",
-    technologies: "React.js, Node.js, Express.js, MongoDB Atlas",
+    description: "Developing and maintaining iOS applications, focusing on performance and user experience.",
+    technologies: "Swift, UIKit, SwiftUI, Core Data, Xcode",
   },
   {
-    date: "Sep 2023 - Feb 2024",
-    title: "MERN Stack Development",
-    company: "Coding Cloud, Ahmedabad",
-    technologies: "HTML5, CSS3, Tailwind CSS, JavaScript, React.js, Node.js",
+    date: "Jul 2023 - Jul 2025",
+    title: "Master of Computer Applications - MCA",
+    company: "GLS University",
+    description: "Pursuing a Master of Computer Applications, specializing in advanced software development and system design.",
+    technologies: "Advanced Algorithms, Software Architecture, Database Systems, Cloud Computing, Mobile Development",
   },
   {
-    date: "Jan 2020 - May 2024",
-    title: "Information Technology (B.Tech)",
-    company: "SILVER OAK UNIVERSITY, Ahmedabad",
-    technologies: "Leadership, Time Management, Teamwork",
+    date: "2019 - 2023",
+    title: "Bachelor, Computer Application",
+    company: "Bhakta Kavi Narsinh Mehta University",
+    description: "Completed a Bachelor's degree in Computer Applications, developing skills in software development and problem-solving.",
+    technologies: "Programming Fundamentals, Data Structures, Algorithms, Database Management, Software Engineering Principles",
   },
 ];
 

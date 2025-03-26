@@ -64,7 +64,7 @@ const Navbar = () => {
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           {/* Logo */}
           <Typography variant="h6" sx={{ color: "black", fontWeight: "bold" }}>
-            Prit Mokariya
+          Bhuva Bhavesh
           </Typography>
 
           {/* Desktop Navigation */}
