@@ -1,24 +1,24 @@
-import { Typography, Container, Box } from "@mui/material";
-import { motion } from "framer-motion";
-import "../components/FancyButton"; // Import Fancy Button styles
-import Downlodebtn from "../components/Downlodebtn";
+"use client"
 
+import { Typography, Container, Box, useTheme } from "@mui/material"
+import { motion } from "framer-motion"
+import "../components/FancyButton"
+import Downlodebtn from "../components/Downlodebtn"
 
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-};
+}
 
 const buttonVariants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 0.5 } },
-};
-
+}
 
 function Landingpage() {
+  const theme = useTheme()
+
   return (
-    <>
-    {/* <CursorEffect /> */}
     <Box
       sx={{
         height: "100vh",
@@ -27,9 +27,9 @@ function Landingpage() {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        backgroundColor: "#f8f8f8",
+        backgroundColor: theme.palette.background.default,
         px: 2,
-        position: "relative", // Allow positioning of side button
+        position: "relative",
       }}
     >
       <Container maxWidth="md">
@@ -38,7 +38,7 @@ function Landingpage() {
             variant="h2"
             fontWeight="bold"
             sx={{
-              color: "#333",
+              color: theme.palette.text.primary,
               mb: 2,
               fontSize: { xs: "2.5rem", md: "4rem" },
             }}
@@ -51,13 +51,14 @@ function Landingpage() {
           <Typography
             variant="h5"
             sx={{
-              color: "#666",
+              color: theme.palette.text.secondary,
               maxWidth: "600px",
               margin: "auto",
               fontSize: { xs: "1rem", md: "1.5rem" },
             }}
           >
-            “A passionate web developer with expertise in React.js, TypeScript, and Material UI, currently expanding knowledge in Node.js to build full-stack applications.”
+            "A passionate web developer with expertise in React.js, TypeScript, and Material UI, currently expanding
+            knowledge in Node.js to build full-stack applications."
           </Typography>
         </motion.div>
 
@@ -68,18 +69,14 @@ function Landingpage() {
               justifyContent: "center",
               alignItems: "center",
               mt: 4,
-              gap: 2, // Spacing between buttons
+              gap: 2,
             }}
           >
-            {/* <button id="btnlandingpage1" className="fancy-button">
-              <a href="/projects"><span>View My Work</span></a>
-            </button> */}
-           <Downlodebtn />
+            <Downlodebtn />
           </Box>
         </motion.div>
       </Container>
 
-      {/* Fixed position button on the right side */}
       <Box
         sx={{
           position: "absolute",
@@ -88,12 +85,10 @@ function Landingpage() {
           transform: "translateY(-50%)",
           zIndex: 10,
         }}
-      >
-        {/* Add any additional content or styling if needed */}
-      </Box>
+      ></Box>
     </Box>
-    </>
-  );
+  )
 }
 
-export default Landingpage;
+export default Landingpage
+

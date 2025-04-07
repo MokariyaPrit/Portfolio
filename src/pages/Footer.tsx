@@ -1,20 +1,50 @@
-import { Box, Typography, Grid, Link } from "@mui/material";
-import { styled } from "@mui/system";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import React, { useEffect } from "react";
-import Tooltip from "../components/Tooltip";
+"use client"
+
+import { Box, Typography, Grid, Link, useTheme } from "@mui/material"
+import { styled } from "@mui/system"
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import type React from "react"
+import { useEffect } from "react"
+import Tooltip from "../components/Tooltip"
+
+// Define styled components properly
+const StyledFooter = styled(Box)(({ theme }) => ({
+  background: theme.palette.mode === "dark" ? "#0a0a0a" : "#1a1a1a",
+  color: "#fff",
+  paddingTop: "20px",
+  paddingBottom: "40px",
+}))
+
+const StyledLink = styled(Link)(({ theme }) => ({
+  color: theme.palette.mode === "dark" ? "#fff" : "#fff",
+  textDecoration: "none",
+  fontSize: "16px",
+  transition: "color 0.3s ease",
+  cursor: "pointer",
+  "&:hover": {
+    color: theme.palette.primary.main,
+  },
+}))
 
 const Footer = () => {
+  const theme = useTheme()
+
   return (
     <StyledFooter>
       <Box sx={{ maxWidth: "1200px", mx: "auto", py: 6 }}>
         <Grid container spacing={4} justifyContent="center">
-          
           {/* Contact Information */}
           <Grid item xs={12} sm={6} md={4}>
             <FooterSection title="Contact Information">
-              <Typography sx={{ color: '#fff', fontSize: { xs: '14px', sm: '16px' }, mb: 1, textAlign: 'center' }}>
+              <Typography
+                sx={{
+                  color: theme.palette.mode === "dark" ? "#fff" : "#fff",
+                  fontSize: { xs: "14px", sm: "16px" },
+                  mb: 1,
+                  textAlign: "center",
+                }}
+              >
                 Email: <StyledLink href="mailto:mokariyaprit2086@gmail.com">mokariyaprit2086@gmail.com</StyledLink>
               </Typography>
             </FooterSection>
@@ -23,7 +53,7 @@ const Footer = () => {
           {/* Social Media Links */}
           <Grid item xs={12} sm={6} md={4}>
             <FooterSection title="Connect with Me">
-              <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
+              <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
                 <Tooltip />
               </Box>
             </FooterSection>
@@ -32,12 +62,12 @@ const Footer = () => {
           {/* Links Section */}
           <Grid item xs={12} sm={6} md={4}>
             <FooterSection title="Quick Links">
-              <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: 4 }}>
+              <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", gap: 4 }}>
                 <LinksSection
                   links={[
                     { label: "About Me", href: "#about" },
                     { label: "Projects", href: "#projects" },
-                    { label: "Resume", href: "#" }, // ✅ Scrolls to top when clicked
+                    { label: "Resume", href: "#" },
                   ]}
                 />
                 <LinksSection
@@ -54,26 +84,41 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <FooterSection title="">
-          <Box sx={{ textAlign: 'center', mt: 4, borderTop: '1px solid #444', pt: 2 }}>
-            <Typography variant="body2" sx={{ color: '#fff', fontSize: { xs: '12px', sm: '14px' }, textAlign: 'center' }}>
+          <Box
+            sx={{
+              textAlign: "center",
+              mt: 4,
+              borderTop: `1px solid ${theme.palette.mode === "dark" ? "#444" : "#444"}`,
+              pt: 2,
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                color: theme.palette.mode === "dark" ? "#fff" : "#fff",
+                fontSize: { xs: "12px", sm: "14px" },
+                textAlign: "center",
+              }}
+            >
               &copy; {new Date().getFullYear()} Prit Mokariya. All rights reserved.
             </Typography>
           </Box>
         </FooterSection>
       </Box>
     </StyledFooter>
-  );
-};
+  )
+}
 
 // Footer Section Component
 const FooterSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => {
-  const controls = useAnimation();
-  const { ref, inView } = useInView({ threshold: 0.3 });
+  const theme = useTheme()
+  const controls = useAnimation()
+  const { ref, inView } = useInView({ threshold: 0.3 })
 
   useEffect(() => {
-    if (inView) controls.start("visible");
-    else controls.start("hidden");
-  }, [controls, inView]);
+    if (inView) controls.start("visible")
+    else controls.start("hidden")
+  }, [controls, inView])
 
   return (
     <motion.div
@@ -87,17 +132,27 @@ const FooterSection: React.FC<{ title: string; children: React.ReactNode }> = ({
       style={{ marginBottom: 20 }}
     >
       {title && (
-        <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#fff', mb: 2, fontSize: { xs: '18px', sm: '20px' }, textAlign: 'center' }}>
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: "bold",
+            color: theme.palette.mode === "dark" ? "#fff" : "#fff",
+            mb: 2,
+            fontSize: { xs: "18px", sm: "20px" },
+            textAlign: "center",
+          }}
+        >
           {title}
         </Typography>
       )}
       {children}
     </motion.div>
-  );
-};
+  )
+}
 
-// Links Section Component (Fix for Quick Links)
+// Links Section Component
 const LinksSection: React.FC<{ links: { label: string; href: string }[] }> = ({ links }) => {
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 1, textAlign: "center" }}>
       {links.map((link, index) => (
@@ -105,10 +160,10 @@ const LinksSection: React.FC<{ links: { label: string; href: string }[] }> = ({ 
           key={index}
           onClick={() =>
             link.href === "#"
-              ? scrollToSection("#") // ✅ Scroll to top when clicking Resume
+              ? scrollToSection("#")
               : link.href.startsWith("#")
-              ? scrollToSection(link.href)
-              : window.open(link.href, "_blank")
+                ? scrollToSection(link.href)
+                : window.open(link.href, "_blank")
           }
           variant="body2"
         >
@@ -116,40 +171,20 @@ const LinksSection: React.FC<{ links: { label: string; href: string }[] }> = ({ 
         </StyledLink>
       ))}
     </Box>
-  );
-};
+  )
+}
 
 // Function for Smooth Scrolling
 const scrollToSection = (id: string) => {
   if (id === "#") {
-    // Scroll to the top of the page
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" })
   } else {
-    // Scroll to the section if it exists
-    const target = document.querySelector(id);
+    const target = document.querySelector(id)
     if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.scrollIntoView({ behavior: "smooth", block: "start" })
     }
   }
-};
+}
 
-// Styled Components
-const StyledFooter = styled(Box)`
-  background: #1a1a1a;
-  color: #fff;
-  padding-top: 20px;
-  padding-bottom: 40px;
-`;
+export default Footer
 
-const StyledLink = styled(Link)`
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s ease;
-  cursor: pointer; /* Ensure it's clickable */
-  &:hover {
-    color: #6e07f3;
-  }
-`;
-
-export default Footer;
