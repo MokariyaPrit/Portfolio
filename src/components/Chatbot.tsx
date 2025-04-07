@@ -141,7 +141,7 @@ const Chatbot = () => {
         <IconButton
           onClick={() => setOpen(true)}
           sx={{
-            backgroundColor: "#3f51b5",
+            backgroundColor: "#2563eb",
             color: "#fff",
             width: 60,
             height: 60,

@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material/styles";
 import styled from "styled-components";
-import downlink from "../../public/Prit_mokariya_React_js.pdf"
+import downlink from "../../public/Bhuva_Bhavesh.pdf"
 
 const DownloadButton = () => {
   const theme = useTheme(); // Get the theme
@@ -8,7 +8,7 @@ const DownloadButton = () => {
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = downlink; // Path to your PDF file
-    link.download = "Prit_CV.pdf"; // Default name for the downloaded file
+    link.download = "Bhavesh.pdf"; // Default name for the downloaded file
     link.click(); // Simulate click to start download
   };
 
@@ -40,7 +40,8 @@ const StyledWrapper = styled.div`
     justify-content: center !important;
     align-items: center !important;
     border-radius: 8px;
-    background: #6e07f3;
+    // background: #6e07f3;
+     background: #2563eb;
     font-family: "Montserrat", sans-serif;
     box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -60,7 +61,7 @@ const StyledWrapper = styled.div`
     content: "";
     width: 0%;
     height: 100%;
-    background: #ffd401;
+    background: #64748b;
     position: absolute;
     transition: all 0.4s ease-in-out;
     right: 0;
