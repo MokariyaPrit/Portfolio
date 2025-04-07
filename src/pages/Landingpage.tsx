@@ -43,7 +43,7 @@ function Landingpage() {
               fontSize: { xs: "2.5rem", md: "4rem" },
             }}
           >
-            Hi, I'm Bhavesh 👋
+            Hi, I'm Prit 👋
           </Typography>
         </motion.div>
 
