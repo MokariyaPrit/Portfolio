@@ -16,9 +16,9 @@ import mongoIcon from "../../public/assets/mongodb.png"
 const skills = [
   { name: "HTML", color: "#E44D26", icon: htmlIcon },
   { name: "CSS", color: "#2965F1", icon: cssIcon },
-  { name: "JavaScript", color: "#F7DF1E", icon: jsIcon },
   { name: "React", color: "#61DAFB", icon: reactIcon },
   { name: "TypeScript", color: "#3178C6", icon: tsIcon },
+  { name: "JavaScript", color: "#F7DF1E", icon: jsIcon },
   { name: "Node.js", color: "#83CD29", icon: nodeIcon },
   { name: "MongoDB", color: "#402e1f", icon: mongoIcon },
 ]
