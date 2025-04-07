@@ -39,9 +39,9 @@ const Chatbot = () => {
   
 
   const contactInfo = [
-    "Email : bbhuva294@gmail.com",
-    "LinkedIn: https://www.linkedin.com/in/bhuva-bhavesh/",
-    "GitHub : https://github.com/bhuvabhavesh"
+    "Email : mokariyaprit2086@gmail.com",
+    "LinkedIn: https://www.linkedin.com/in/prit-mokariya",
+    "GitHub : https://github.com/MokariyaPrit"
   ];
 
   const handleOptionClick = (option: string) => {
