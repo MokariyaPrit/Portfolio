@@ -28,12 +28,12 @@ const About = () => {
   const theme = useTheme()
   const heading = `About Me: Turning Ideas into Interactive Experiences`
   const description = [
-"Since beginning my journey as an iOS developer",
-"I've worked with modern technologies like Swift, SwiftUI, UIKit, and Combine",
-"to build scalable and high-performance applications.",
-"I love problem-solving and optimizing performance.",
-"iOS developer driven by innovation and a commitment to crafting beautiful, functional applications."
-  ];
+    "Since beginning my journey as a web developer,",
+    "I've worked with modern technologies like React, TypeScript,Node and Material UI",
+    "to build scalable and high-performance applications.",
+    "I love problem-solving and optimizing performance.",
+    "Web developer driven by innovation and a commitment to crafting beautiful, functional applications.",
+  ]
 
   const { ref: imgRef, inView: imgInView } = useInView({
     triggerOnce: true,
