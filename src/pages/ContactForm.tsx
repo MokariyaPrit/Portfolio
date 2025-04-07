@@ -83,7 +83,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   cursor: "pointer",
   transition: "background-color 0.3s ease, transform 0.3s ease",
   "&:hover": {
-    backgroundColor: "#5ad641 !important",
+    backgroundColor: "#1d4ed8 !important",
     color: `${theme.palette.mode === "dark" ? "#000" : "#000"} !important`,
   },
   "&:active": {
@@ -96,7 +96,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
     left: 0,
     width: "100%",
     height: "100%",
-    backgroundColor: "#5ad641",
+    backgroundColor: "#1d4ed8 !important",
     color: "#000",
     display: "flex",
     alignItems: "center",
@@ -148,8 +148,8 @@ const ContactForm = () => {
     if (!form.current) return
 
     emailjs
-      .sendForm("service_m6mjsuv", "template_nzvt2wa", form.current, {
-        publicKey: "yommtNwwvNS-S06Tk",
+      .sendForm("service_n55b1tp", "template_kwfx79p", form.current, {
+        publicKey: "IT-X7ZLz9mfBcbr7e",
       })
       .then(
         () => {

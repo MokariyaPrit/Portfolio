@@ -6,7 +6,7 @@ const Tooltip = () => {
       <ul className="example-2">
         <li className="icon-content">
           <a
-            href="https://www.linkedin.com/in/bhuva-bhavesh/"
+            href="https://www.linkedin.com/in/prit-mokariya"
             target="_blank"
             aria-label="LinkedIn"
             data-social="linkedin"
@@ -31,7 +31,7 @@ const Tooltip = () => {
         </li>
         <li className="icon-content">
           <a
-            href="https://github.com/bhuvabhavesh"
+            href="https://github.com/MokariyaPrit"
             aria-label="GitHub"
             data-social="github"
           >
