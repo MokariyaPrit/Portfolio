@@ -1,157 +1,151 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import { TextField, Button, Box, Grid, Typography, Card } from "@mui/material";
-import { styled } from "@mui/system";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+"use client"
 
-// Styled Components for better UI
-const StyledWrapper = styled(Box)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-`;
+import type React from "react"
+import { useRef, useState } from "react"
+import emailjs from "@emailjs/browser"
+import { TextField, Button, Box, Grid, Typography, Card, useTheme } from "@mui/material"
+import { styled } from "@mui/system"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
-const FormCard = styled(Card)`
-  width: 100%;
-  max-width: 500px;
-  min-height: 300px;
-  padding: 16px;
-  background: #fff;
-  border: 6px solid #000;
-  box-shadow: 12px 12px 0 #000;
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
+// Define styled components outside the component function
+const StyledWrapper = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "20px",
+  backgroundColor: theme.palette.background.default,
+}))
 
-  &:hover {
-    transform: translate(-5px, -5px);
-    box-shadow: 17px 17px 0 #000;
-  }
+const FormCard = styled(Card)(({ theme }) => ({
+  width: "100%",
+  maxWidth: 500,
+  minHeight: 300,
+  padding: 16,
+  background: theme.palette.background.paper,
+  border: `6px solid ${theme.palette.mode === "dark" ? "#333" : "#000"}`,
+  boxShadow: `12px 12px 0 ${theme.palette.mode === "dark" ? "#333" : "#000"}`,
+  transition: "transform 0.3s, box-shadow 0.3s",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  textAlign: "center",
+  cursor: "pointer",
+  "&:hover": {
+    transform: "translate(-5px, -5px)",
+    boxShadow: `17px 17px 0 ${theme.palette.mode === "dark" ? "#333" : "#000"}`,
+  },
+  "&:hover .MuiTypography-root::after": {
+    width: "100%",
+    left: 0,
+  },
+}))
 
-  &:hover .MuiTypography-root::after {
-    width: 100%;
-    left: 0;
-  }
-`;
+const CardTitle = styled(Typography)(({ theme }) => ({
+  fontSize: 24,
+  fontWeight: 900,
+  color: theme.palette.text.primary,
+  textTransform: "uppercase",
+  marginBottom: 10,
+  position: "relative",
+  display: "inline-block",
+  cursor: "pointer",
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    left: "50%",
+    bottom: -3,
+    width: 0,
+    height: 3,
+    backgroundColor: theme.palette.primary.main,
+    transition: "width 0.4s ease-in-out, left 0.4s ease-in-out",
+  },
+}))
 
-// Heading with Hover Underline Effect
-const CardTitle = styled(Typography)`
-  font-size: 24px;
-  font-weight: 900;
-  color: #000;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
+const CardContentStyled = styled(Box)(({ theme }) => ({
+  fontSize: 14,
+  lineHeight: 1.4,
+  color: theme.palette.text.secondary,
+  marginBottom: 16,
+}))
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -3px;
-    width: 0;
-    height: 3px;
-    background-color: #000;
-    transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
-  }
-`;
-
-const CardContentStyled = styled(Box)`
-  font-size: 14px;
-  line-height: 1.4;
-  color: #000;
-  margin-bottom: 16px;
-`;
-
-const StyledButton = styled(Button)`
-  width: 50%;
-  border: 3px solid #000;
-  background: #000;
-  color: #fff;
-  padding: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-
-  &:hover {
-    background-color: #5ad641 !important;
-    color: #000 !important;
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-
-  &::before {
-    content: "Sure?";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #5ad641;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(100%);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  &:hover::before {
-    transform: translateY(0);
-  }
-`;
+const StyledButton = styled(Button)(({ theme }) => ({
+  width: "50%",
+  border: `3px solid ${theme.palette.mode === "dark" ? "#333" : "#000"}`,
+  background: theme.palette.mode === "dark" ? "#333" : "#000",
+  color: theme.palette.mode === "dark" ? "#fff" : "#fff",
+  padding: 8,
+  fontSize: 16,
+  fontWeight: "bold",
+  textTransform: "uppercase",
+  position: "relative",
+  overflow: "hidden",
+  cursor: "pointer",
+  transition: "background-color 0.3s ease, transform 0.3s ease",
+  "&:hover": {
+    backgroundColor: "#5ad641 !important",
+    color: `${theme.palette.mode === "dark" ? "#000" : "#000"} !important`,
+  },
+  "&:active": {
+    transform: "scale(0.95)",
+  },
+  "&::before": {
+    content: '"Sure?"',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#5ad641",
+    color: "#000",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transform: "translateY(100%)",
+    transition: "transform 0.3s ease-in-out",
+  },
+  "&:hover::before": {
+    transform: "translateY(0)",
+  },
+}))
 
 const ContactForm = () => {
-  const form = useRef<HTMLFormElement | null>(null);
-  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+  const theme = useTheme()
+  const form = useRef<HTMLFormElement | null>(null)
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({})
+
   const validateForm = () => {
-    const formErrors: { name?: string; email?: string; message?: string } = {};
-  
-    const name = form.current?.from_name.value;
-    const email = form.current?.to_name.value;
-    const message = form.current?.message.value;
-  
-    // Name validation: Only letters and spaces allowed
+    const formErrors: { name?: string; email?: string; message?: string } = {}
+
+    const name = form.current?.from_name.value
+    const email = form.current?.to_name.value
+    const message = form.current?.message.value
+
     if (!name) {
-      formErrors.name = "Name is required!";
+      formErrors.name = "Name is required!"
     } else if (!/^[A-Za-z\s]+$/.test(name)) {
-      formErrors.name = "Name can only contain letters and spaces!";
+      formErrors.name = "Name can only contain letters and spaces!"
     }
-  
-    // Email validation
+
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      formErrors.email = "Please enter a valid email!";
+      formErrors.email = "Please enter a valid email!"
     }
-  
-    // Message validation
+
     if (!message) {
-      formErrors.message = "Message cannot be empty!";
+      formErrors.message = "Message cannot be empty!"
     }
-  
-    setErrors(formErrors);
-  
-    return Object.keys(formErrors).length === 0;
-  };
-  
+
+    setErrors(formErrors)
+
+    return Object.keys(formErrors).length === 0
+  }
 
   const sendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    if (!validateForm()) return;
+    if (!validateForm()) return
 
-    if (!form.current) return;
+    if (!form.current) return
 
     emailjs
       .sendForm("service_m6mjsuv", "template_nzvt2wa", form.current, {
@@ -166,9 +160,9 @@ const ContactForm = () => {
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
-          });
-          form.current?.reset();
-          setErrors({});
+          })
+          form.current?.reset()
+          setErrors({})
         },
         (error) => {
           toast.error("Failed to send message. Try again!", {
@@ -178,11 +172,11 @@ const ContactForm = () => {
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
-          });
-          console.error("FAILED...", error.text);
-        }
-      );
-  };
+          })
+          console.error("FAILED...", error.text)
+        },
+      )
+  }
 
   return (
     <StyledWrapper>
@@ -203,7 +197,18 @@ const ContactForm = () => {
                 required
                 error={!!errors.name}
                 helperText={errors.name}
-                sx={{ "& .MuiOutlinedInput-root": { borderRadius: "8px" } }}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "8px",
+                    color: theme.palette.text.primary,
+                  },
+                  "& .MuiInputLabel-root": {
+                    color: theme.palette.text.secondary,
+                  },
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: theme.palette.mode === "dark" ? "rgba(255, 255, 255, 0.23)" : "rgba(0, 0, 0, 0.23)",
+                  },
+                }}
               />
             </Grid>
 
@@ -217,7 +222,18 @@ const ContactForm = () => {
                 required
                 error={!!errors.email}
                 helperText={errors.email}
-                sx={{ "& .MuiOutlinedInput-root": { borderRadius: "8px" } }}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "8px",
+                    color: theme.palette.text.primary,
+                  },
+                  "& .MuiInputLabel-root": {
+                    color: theme.palette.text.secondary,
+                  },
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: theme.palette.mode === "dark" ? "rgba(255, 255, 255, 0.23)" : "rgba(0, 0, 0, 0.23)",
+                  },
+                }}
               />
             </Grid>
 
@@ -233,7 +249,18 @@ const ContactForm = () => {
                 rows={3}
                 error={!!errors.message}
                 helperText={errors.message}
-                sx={{ "& .MuiOutlinedInput-root": { borderRadius: "8px" } }}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "8px",
+                    color: theme.palette.text.primary,
+                  },
+                  "& .MuiInputLabel-root": {
+                    color: theme.palette.text.secondary,
+                  },
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: theme.palette.mode === "dark" ? "rgba(255, 255, 255, 0.23)" : "rgba(0, 0, 0, 0.23)",
+                  },
+                }}
               />
             </Grid>
 
@@ -249,7 +276,8 @@ const ContactForm = () => {
       {/* Toastify Container */}
       <ToastContainer />
     </StyledWrapper>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm
+
