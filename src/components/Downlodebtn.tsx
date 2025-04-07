@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material/styles";
 import styled from "styled-components";
-import downlink from "../../public/Bhuva_Bhavesh.pdf"
+import downlink from "../../public/Prit_mokariya_React_js.pdf"
 
 const DownloadButton = () => {
   const theme = useTheme(); // Get the theme
@@ -8,7 +8,7 @@ const DownloadButton = () => {
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = downlink; // Path to your PDF file
-    link.download = "Bhavesh.pdf"; // Default name for the downloaded file
+    link.download = "Prit_CV.pdf"; // Default name for the downloaded file
     link.click(); // Simulate click to start download
   };
 
